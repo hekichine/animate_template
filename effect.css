@@ -1,0 +1,50 @@
+/* 
+========== ANIMATED ===========
+  1. TEXT
+
+===============================
+*/
+
+/* 1. TEXT */
+.animation-text {
+  overflow: visible;
+  position: absolute;
+  bottom: 0;left: 0;right: 0;
+  transform: translateY(50%) translateX(15%);
+  pointer-events: none;
+}
+.animation-text text {
+  text-transform: uppercase;
+  animation: stroke 5s infinite alternate;
+  stroke-width: 2;
+  stroke: #fff;
+  font-size: 140px;
+  font-weight: 600;
+  font-family: var(--font-family-title);
+  opacity: 0.5;
+}
+@keyframes stroke {
+  0% {
+    fill: rgba(255, 255, 255, 0);
+    stroke: rgb(255, 255, 255);
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+  70% {
+    fill: rgba(255, 255, 255, 0);
+    stroke: rgb(255, 255, 255);
+  }
+  80% {
+    fill: rgba(255, 255, 255, 0);
+    stroke: rgb(255, 255, 255);
+    stroke-width: 3;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+    stroke: rgba(255, 255, 255, 0);
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+  }
+}
