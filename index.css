@@ -1,3 +1,6 @@
+:root{
+  --linear-1: linear-gradient(to right, #000 0%, #000 100%)
+}
 .box{
   padding: 50px;
   background-color: #1e3dc3;

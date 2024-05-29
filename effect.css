@@ -1,6 +1,7 @@
 /* 
 ========== ANIMATED ===========
   1. TEXT
+  2. BUTTON
 
 ===============================
 */
@@ -46,5 +47,24 @@
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
     stroke-width: 0;
+  }
+}
+/* 2. BUTTON */
+.kxti-btn-underline{
+  padding-bottom: 5px;
+  background: var(--linear-1);
+  background-size: 100% 5%;
+  background-repeat: no-repeat;
+  background-position: left 80%;
+  transition: all .4s ease;
+  text-decoration: none;
+  color: var(--link-color,#000);
+}
+@media (min-width: 1025px){
+  .kxti-btn-underline{
+    background-size: 0 5%;
+  }
+  .kxti-btn-underline:hover{
+    background-size: 100% 5%;
   }
 }
