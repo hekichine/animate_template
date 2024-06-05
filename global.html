@@ -16,15 +16,28 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <style>
+      kxti-drawer{
+        display: block;
+        z-index: 999;
+      }
+    </style>
   </head>
 
   <body>
     <a href="https://www.youtube.com/watch?v=qV7jh7ctALg&list=PLY6oTPmKnKbaNVkXHOHWxgdKEZLGKuFP9" target="_blank">Web components tutorial</a>
-    <hello-world>
-      <h3>I am a child</h3>
-    </hello-world>
-    <hello-world></hello-world>
-    <hello-world id="target"></hello-world>
+    <hr>
+    <div class="container">
+      <div class="row">
+      <button is="openDrawerBtn" aria-controls="drawer-2">Open Drawer</button>
+      <kxti-drawer id="drawer-2">
+        <h3>12321</h3>
+        <p>23lj4l23j4321k</p>
+      </kxti-drawer>
+      </div>
+    </div>
+    <h3 style="z-index: 999;color:red">Z-index : 999</h3>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
