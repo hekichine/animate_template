@@ -1,3 +1,6 @@
+// ==================
+//   drawer template
+// ==================
 class Drawer extends HTMLElement {
   constructor() {
     super();
