@@ -1,16 +1,48 @@
 /* 
 ========== ANIMATED ===========
+  0. PROGRESS BAR
   1. TEXT
   2. BUTTON
+  3. REVERSE SCROLL
 
 ===============================
 */
+/* ROOT */
+:root{
+  --accent-color: red;
+}
+/* 0. PROGRESS BAR */
+html {
+  scroll-timeline: --page-scroll block;
+}
+@keyframes grow-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 
+#progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color,red);
+  z-index: 9999;
+  transform-origin: 0 50%;
+  animation: grow-progress auto linear;
+  animation-timeline: --page-scroll;
+}
 /* 1. TEXT */
 .animation-text {
   overflow: visible;
   position: absolute;
-  bottom: 0;left: 0;right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   transform: translateY(50%) translateX(15%);
   pointer-events: none;
 }
@@ -50,21 +82,63 @@
   }
 }
 /* 2. BUTTON */
-.kxti-btn-underline{
+.kxti-btn-underline {
   padding-bottom: 5px;
   background: var(--linear-1);
   background-size: 100% 5%;
   background-repeat: no-repeat;
   background-position: left 80%;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   text-decoration: none;
-  color: var(--link-color,#000);
+  color: var(--link-color, #000);
 }
-@media (min-width: 1025px){
-  .kxti-btn-underline{
+@media (min-width: 1025px) {
+  .kxti-btn-underline {
     background-size: 0 5%;
   }
-  .kxti-btn-underline:hover{
+  .kxti-btn-underline:hover {
     background-size: 100% 5%;
+  }
+}
+/* 3. REVERSE SCROLL */
+.reverse_layout figure {
+  margin: 0;
+}
+.reverse_layout img {
+  width: 100%;
+  border-radius: 10px;
+}
+.reverse_layout .columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+}
+.reverse_layout .column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.reverse_layout .column-reverse {
+  transform: translateY(calc(-100% + 100vh));
+}
+.reverse_layout .columns {
+  overflow-y: hidden;
+}
+.reverse_layout .column-reverse {
+  flex-direction: column-reverse;
+}
+.reverse_layout .column-reverse {
+  animation: adjust-position linear forwards;
+  animation-timeline: scroll(block root);
+}
+@keyframes adjust-position {
+  /* Start position: shift entire column up, but not so that it goes out of view */
+  from {
+    transform: translateY(calc(-100% + 100vh));
+  }
+
+  /* End position: shift entire column down, but not so that it goes out of view */
+  to {
+    transform: translateY(calc(100% - 100vh));
   }
 }
