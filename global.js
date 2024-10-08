@@ -128,3 +128,28 @@ document.querySelectorAll('[is="openDrawerBtn"]').forEach(btn => {
     } 
   })
 })
+
+
+class ToolBar extends HTMLElement{
+  constructor(){
+    super();
+    this.links = this.querySelectorAll('li:not(.follow) a');
+    if(this.links.length > 0){
+      this.links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.querySelector('li.active').classList.remove('active');
+          link.parentElement.classList.add('active');
+        })
+      })
+    }
+  }
+}
+customElements.define('toolbar-widget',ToolBar);
+
+let toolbar_color = document.getElementById('toolbar_color');
+let toolbar_parent = document.querySelector('.toolbar')
+console.log(parent);
+toolbar_color.addEventListener('input', (e) => {
+  toolbar_parent.style.setProperty('--clr', e.target.value)
+})

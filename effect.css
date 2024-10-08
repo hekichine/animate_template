@@ -142,3 +142,109 @@ html {
     transform: translateY(calc(100% - 100vh));
   }
 }
+
+/* TOOLBAR */
+.toolbar{
+  width: 440px;
+  height: 500px;
+  background-color: var(--clr);
+  --clr: #222327;
+  --size: 70px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  border-radius: 10px;
+}
+.tb-color{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.tb-color p{
+  white-space: nowrap;
+}
+.tb-widget {
+  width: 400px;
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 auto 10px;
+}
+.tb-widget ul{
+  display: flex;
+  width: 350px;
+  margin: 0;padding: 0;
+  position: relative;
+  list-style: none;
+}
+.tb-widget ul li.tb-icon {
+  list-style: none;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  z-index: 5;
+}
+.tb-widget ul li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: .25s ease-in;
+  color: var(--clr);
+}
+.tb-widget .tb-icon.active a{
+  transform: translateY(-35px);
+}
+.tb-widget .follow{
+  position: absolute;
+  top: -50%;
+  width: var(--size);
+  height: var(--size);
+  background-color: burlywood;
+  border: 6px solid var(--clr);
+  transition: .5s ease-in;
+  border-radius: 100%;
+  transform: translateX(calc(var(--size) * var(--box)));
+}
+.tb-widget .follow::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22.5px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-start-end-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--clr);
+}
+.tb-widget .follow::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22.5px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-start-start-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--clr);
+}
+.tb-widget .tb-icon:nth-child(1).active ~ .follow{
+  --box: 0;
+}
+.tb-widget .tb-icon:nth-child(2).active ~ .follow{
+  --box: 1;
+}
+.tb-widget .tb-icon:nth-child(3).active ~ .follow{
+  --box: 2;
+}
+.tb-widget .tb-icon:nth-child(4).active ~ .follow{
+  --box: 3;
+}
+.tb-widget .tb-icon:nth-child(5).active ~ .follow{
+  --box: 4;
+}
